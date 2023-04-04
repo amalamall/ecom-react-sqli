@@ -91,17 +91,17 @@ export default function CaptionCarousel() {
     {
       title: "IPhone 11 Pro Max",
       text: "this phone is awesome",
-      image: "/assets/images/products/IPhone/iphone2.jpeg",
+      image: "/assets/images/products/iphone/iphone2.jpeg",
     },
     {
       title: "IPhone 11 Pro",
       text: "this phone is awesome",
-      image: "/assets/images/products/IPhone/iphone1.jpeg",
+      image: "/assets/images/products/iphone/iphone1.jpeg",
     },
     {
       title: "IPhone 11",
       text: "this phone is awesome",
-      image: "/assets/images/products/IPhone/iphone3.jpeg",
+      image: "/assets/images/products/iphone/iphone3.jpeg",
     },
   ];
 
