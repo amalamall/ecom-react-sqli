@@ -175,10 +175,11 @@ export default function Header() {
             id={"l"}
 
           />
+          {navbarSize === "md" && (
           <PopOverElement
             trigger={"Checkout"}
             body={
-              <Box paddingTop={10} paddingBottom={10} overflowY="auto" maxHeight="20rem" marginTop={navbarSize === 'sm'?  "3rem" : "2rem"}>
+              <Box paddingTop={10} paddingBottom={10} overflowY="auto" maxHeight="20rem" marginTop={navbarSize === 'sm'?  "3rem" : "0rem"}>
                 {(productList.length > 0 &&
                   productList.map((product) => {
                     return (
@@ -221,7 +222,8 @@ export default function Header() {
               </>
             }
             id={"c"}
-          />
+          />          )}
+
           {navbarSize === "md" && (
             <Link
               href="/products/search"
@@ -250,6 +252,7 @@ const DesktopNav = () => {
   return (
     <Stack direction={"row"} spacing={4}>
       {NAV_ITEMS.map((navItem,index) => (
+        navItem.label !== "Checkout" && (
         <Box key={navItem.label} id={index}>
           <Popover trigger={"hover"} placement={"bottom-start"} id={index}>
             <PopoverTrigger id={index}>
@@ -285,7 +288,7 @@ const DesktopNav = () => {
               </PopoverContent>
             )}
           </Popover>
-        </Box>
+        </Box>)
       ))}
     </Stack>
   );
@@ -412,5 +415,9 @@ const NAV_ITEMS = [
   {
     label: "Contact",
     href: "/#contact",
+  },
+  {
+    label: "Checkout",
+    href: "/products/checkout",
   },
 ];
