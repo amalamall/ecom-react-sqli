@@ -119,7 +119,7 @@ const ThreeTierPricingHorizontal = () => {
           <Heading
             size={"md"}
             textAlign="center"
-            color="pink.600"
+            color="purple.600"
             padding={"50"}
           >
             No Products Added Yet...

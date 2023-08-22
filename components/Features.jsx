@@ -17,7 +17,10 @@ const Feature = ({ title, text, icon }) => {
         mb={1}>
         {icon}
       </Flex>
-      <Text fontWeight={600} textAlign="center">{title}</Text>
+      <Text 
+        bgGradient='linear(to-r, purple.700, blue.700 )'
+        bgClip='text'
+      fontWeight={600} textAlign="center">{title}</Text>
     </Stack>
   );
 };
@@ -26,8 +29,12 @@ export default function Features() {
   return (
     <section>
       <Container maxW="container.xl">
-      <Center marginTop={150}>
-      <Heading>Features</Heading>
+      <Center margin={50}>
+      <Heading
+      fontSize='5xl'
+      fontWeight='extrabold'
+      textAlign={"center"} 
+      >Features</Heading>
     </Center>
     <Box p={4} width="full" marginTop={50} marginBottom={150}>
 

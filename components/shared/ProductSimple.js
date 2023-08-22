@@ -82,9 +82,9 @@ export default function ProductSimple({ title, price, image, id }) {
               fontSize={"sm"}
               fontWeight={600}
               color={"white"}
-              bg={"pink.400"}
+              bg={"purple.400"}
               _hover={{
-                bg: "pink.300",
+                bg: "purple.300",
               }}
             >
               Add To Cart

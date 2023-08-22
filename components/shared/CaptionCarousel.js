@@ -17,7 +17,6 @@ import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
 import Slider from "react-slick";
 import Link from "next/link";
 
-
 // Settings for the slider
 const settings = {
   dots: true,
@@ -39,39 +38,53 @@ function Feature({ title, desc, ...rest }) {
       width={{ base: "70vmin", md: "30vmin", lg: "50vmin" }}
       {...rest}
     >
-      <Text fontSize={{ base: "lg", md: "lg" }} mt={{ base: 2, md: 4 }}>
-        New Inspiration 2022
+      <Text 
+      bgGradient='linear(to-l, #999999, #191919)'
+      bgClip='text'
+      fontSize={{ base: "2xl", md: "2xl"}} 
+      fontWeight={"bold"}
+      mt={{ base: 2, md: 4 }}>
+        New Inspiration 2023
       </Text>
-      <Heading fontSize={{ base: "3xl", md: "3xl" }}>{title}</Heading>
+      <Heading fontSize={{ base: "3xl", md: "3xl", lg: "6xl" }}>{title}</Heading>
       <Text fontSize={{ base: "md", md: "2xl" }} mt={{ base: 2, md: 4 }}>
         {desc}
       </Text>
-        <Button
-          as={"a"}
-          display={{ base: "none", md: "inline-flex" }}
-          fontSize={{ base: "md", md: "md" }}
-          fontWeight={600}
-          color={"white"}
-          marginTop={{ base: 2, md: 5 }}
-          bg={"pink.400"}
-          href={"/#category"}
-          _hover={{
-            bg: "pink.300",
-          }}
-        >
-          Shop Now
-        </Button>
+      <Button
+        as={"a"}
+        display={{ base: "none", md: "inline-flex" }}
+        fontSize={{ base: "md", md: "md" }}
+        fontWeight={600}
+        color={"dark"}
+        marginTop={{ base: 2, md: 5 }}
+        boxShadow="2xl"
+        bg={"white"}
+        href={"/#category"}
+        _hover={{
+          bg: "white",
+        }}
+      >
+        Shop Now
+      </Button>
     </Box>
   );
 }
 
 function StackEx({ imageSrc, title, text }) {
   return (
-    <HStack spacing={1} flexDirection={{ base: "column", md: "row" }}>
+    <HStack 
+    spacing={1} 
+    flexDirection={{ base: "column", md: "row" }} 
+    margin={"3rem"}
+    >
       <Feature title={title} desc={text} flex={1} />
-      <Box marginRight={"0.5rem"} boxSize={["90%", "85%", "350px"]}>
+      <Box 
+      marginRight={"0.5rem"} 
+      boxSize={["90%", "85%", "350px"]}>
         <Image
           src={imageSrc}
+          boxShadow="2xl"
+          style={{ border: "60px solid white", borderRadius: 15}}
           fallbackSrc="https://via.placeholder.com/150"
           flex={1}
           objectFit={"cover"}
@@ -90,25 +103,25 @@ export default function CaptionCarousel() {
   const cards = [
     {
       title: "IPhone 11 Pro Max",
-      text: "this phone is awesome",
+      text: "The world’s fastest smartphone chip.",
       image: "/assets/images/products/iphone/iphone2.jpeg",
     },
     {
       title: "IPhone 11 Pro",
-      text: "this phone is awesome",
+      text: "Our most advanced dual‑camera system ever.",
       image: "/assets/images/products/iphone/iphone1.jpeg",
     },
     {
       title: "IPhone 11",
-      text: "this phone is awesome",
-      image: "/assets/images/products/iphone/iphone3.jpeg",
+      text: "A huge leap in battery life",
+      image: "/assets/images/products/iphone/iphone5.jpeg",
     },
   ];
 
   return (
     <Box
       position={"relative"}
-      height={{ base: "95vh", md: "95vh" }}
+      height={{ base: "50vh", md: "50vh" }}
       width={"full"}
       overflow={"hidden"}
       maxW={{ base: "100%", md: "100%", lg: "100%" }}
@@ -162,32 +175,52 @@ export default function CaptionCarousel() {
       <Slider {...settings} ref={(slider) => setSlider(slider)}>
         {cards.map((card, index) => (
           <Box
-            key={index}
-            backgroundPosition="center"
-            backgroundRepeat="no-repeat"
-            backgroundSize="cover"
-            width={"full"}
-            overflow={"hidden"}
-            height={{ base: "91vh", md: "95vh", lg: "75vh" }}
+            _after={{
+              transition: "all .3s ease",
+              content: '""',
+              w: "full",
+              h: "full",
+              pos: "absolute",
+              top: 100,
+              left: 250,
+              backgroundImage: `url(${card.image})`,
+              backgroundPosition: "cover",
+              backgroundRepeat: "no-repeat",
+              filter: "blur(150px)",
+              zIndex: -1,
+            }}
           >
-            <Container
-              size="container.lg"
-              position="relative"
-              display={"flex"}
-              justifyContent={"center"}
-              alignItems={"center"}
-              maxW={{
-                base: "container.sm",
-                md: "container.lg",
-                lg: "container.xl",
-              }}
+            <Box
+              key={index}
+              backgroundPosition="center"
+              backgroundRepeat="no-repeat"
+              backgroundSize="cover"
+              width={"full"}
+              overflow={"hidden"}
+              height={{ base: "91vh", md: "95vh", lg: "75vh" }}
             >
-              <StackEx
-                imageSrc={card.image}
-                title={card.title}
-                text={card.text}
-              />
-            </Container>
+              <Container
+                size="container.lg"
+                position="relative"
+                display={"flex"}
+                justifyContent={"center"}
+                alignItems={"center"}
+                maxW={{
+                  base: "container.sm",
+                  md: "container.lg",
+                  lg: "container.xl",
+                }}
+              >
+                
+                <StackEx
+                  imageSrc={card.image}
+                  title={card.title}
+                  text={card.text}
+                />
+
+
+              </Container>
+            </Box>
           </Box>
         ))}
       </Slider>

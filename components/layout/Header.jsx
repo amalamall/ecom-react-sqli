@@ -154,7 +154,7 @@ export default function Header() {
               <Box padding={5} marginTop={navbarSize === 'sm' && "4rem"}>
                 <Heading
                   size={"md"}
-                  color={"pink.400"}
+                  color={"purple.400"}
                   textAlign="center"
                   margin={3}
                 >
@@ -169,7 +169,7 @@ export default function Header() {
             }
             footer={
               <Link href="#">
-                <Text color={"pink.400"}>Forgot Password ?</Text>
+                <Text color={"purple.400"}>Forgot Password ?</Text>
               </Link>
             }
             id={"l"}
@@ -190,7 +190,7 @@ export default function Header() {
                   })) || (
                   <Heading
                     size={"md"}
-                    color={"pink.400"}
+                    color={"purple.400"}
                     textAlign="center"
                     margin={3}
                   >
@@ -302,13 +302,13 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
       display={"block"}
       p={2}
       rounded={"md"}
-      _hover={{ bg: useColorModeValue("pink.50", "gray.900") }}
+      _hover={{ bg: useColorModeValue("purple.50", "gray.900") }}
     >
       <Stack direction={"row"} align={"center"}>
         <Box>
           <Text
             transition={"all .3s ease"}
-            _groupHover={{ color: "pink.400" }}
+            _groupHover={{ color: "purple.400" }}
             fontWeight={500}
           >
             {label}
@@ -324,7 +324,7 @@ const DesktopSubNav = ({ label, href, subLabel }) => {
           align={"center"}
           flex={1}
         >
-          <Icon color={"pink.400"} w={5} h={5} as={ChevronRightIcon} />
+          <Icon color={"purple.400"} w={5} h={5} as={ChevronRightIcon} />
         </Flex>
       </Stack>
     </Link>

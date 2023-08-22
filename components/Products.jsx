@@ -21,10 +21,14 @@ export default function Products() {
   }
 
   return (
-    <Container maxW="container.xl">
+    <Container maxW="container.xl" style={{ marginTop: 150}}>
       <section id="category">
         <Center>
-          <Heading>Latest Products</Heading>
+          <Heading
+          fontSize='5xl'
+          fontWeight='extrabold'
+          textAlign={"center"} 
+          >Latest Products</Heading>
         </Center>
         <Center marginTop={50}>
         <Select
@@ -44,7 +48,7 @@ export default function Products() {
         <div className="row">
           {data.map((item) => (
             <div key={item.id} className="col-md-4">
-              <ProductSimple {...item} />
+              {<ProductSimple {...item} />}
             </div>
           ))}
         </div>

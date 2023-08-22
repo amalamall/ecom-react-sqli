@@ -88,8 +88,20 @@ export default function Testimonials() {
     <Box bg={useColorModeValue('gray.100', 'gray.700')}>
       <Container maxW={'7xl'} py={16} as={Stack} spacing={12}>
         <Stack spacing={0} align={'center'}>
-          <Heading>Our Clients Speak</Heading>
-          <Text>Our buyers around the world</Text>
+          <Heading
+          fontSize='5xl'
+          fontWeight='extrabold'
+          textAlign={"center"} 
+          margin={50}
+          >Our Clients Speak</Heading>
+          <Text
+            bgGradient='linear(to-l, #7928CA, #FF0080)'
+            bgClip='text'
+          fontSize='3xl'
+          fontWeight='extrabold'
+          textAlign={"center"} 
+          margin={50}
+          >Our buyers around the world</Text>
         </Stack>
         <Stack
           direction={{ base: 'column', md: 'row' }}

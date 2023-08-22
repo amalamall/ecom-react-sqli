@@ -25,13 +25,14 @@ import {
           spacing={8}
           align={'center'}>
             <Stack align={'center'} spacing={2}>
-            <Heading
-              textTransform={'uppercase'}
-              fontSize={'3xl'}
-              color={useColorModeValue('gray.800', 'gray.200')}>
-              Subscribe
-            </Heading>
-            <Text fontSize={'lg'} color={'gray.500'}>
+            <Text 
+            bgGradient='linear(to-l, #7928CA, #FF0080)'
+            bgClip='text'
+            fontSize='2xl'
+            fontWeight='extrabold'
+            // fontSize={'lg'} 
+            // color={'gray.500'}
+            >
               Subscribe to our newsletter & stay up to date!
             </Text>
           </Stack>
@@ -41,7 +42,6 @@ import {
               placeholder={'john@doe.net'}
               color={useColorModeValue('gray.800', 'gray.200')}
               bg={useColorModeValue('gray.100', 'gray.600')}
-              rounded={'full'}
               border={0}
               _focus={{
                 bg: useColorModeValue('gray.200', 'gray.800'),
@@ -54,10 +54,10 @@ import {
                fontSize={'sm'}
                fontWeight={600}
                color={'white'}
-               bg={'pink.400'}
+               bg={'purple.400'}
                href={'#'}
                _hover={{
-                 bg: 'pink.300',
+                 bg: 'purple.300',
                }}>
               Subscribe
             </Button>
