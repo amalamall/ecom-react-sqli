@@ -152,13 +152,13 @@ export default function Contact() {
           </Stack>
         </Stack>
       </Container>
-      <Blur
+      {/* <Blur
         zIndex={-1}
         position={"absolute"}
         top={10}
         left={{ sm:"0", md: "50%"}}
         style={{ filter: "blur(70px)" }}
-      />
+      /> */}
     </Box>
   );
 }
