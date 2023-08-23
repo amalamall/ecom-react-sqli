@@ -1,74 +1,98 @@
-import { Container, Box, SimpleGrid, Icon, Text, Stack, Flex , Center, Heading } from '@chakra-ui/react';
-import { FcAssistant, FcDonate, FcInTransit, FcMoneyTransfer } from 'react-icons/fc';
-
-
+import {
+  Container,
+  Box,
+  SimpleGrid,
+  Icon,
+  Text,
+  useColorModeValue,
+  Stack,
+  Flex,
+  Center,
+  Divider,
+  Heading,
+} from "@chakra-ui/react";
+import {
+  FcAssistant,
+  FcDonate,
+  FcInTransit,
+  FcMoneyTransfer,
+} from "react-icons/fc";
 
 const Feature = ({ title, text, icon }) => {
   return (
     <Stack display={"flex"} alignItems={"center"}>
       <Flex
-        w={16}
-        h={16}
-        align={'center'}
-        justify={'center'}
-        color={'white'}
-        rounded={'full'}
-        bg={'gray.100'}
-        mb={1}>
+        w={100}
+        h={100}
+        align={"center"}
+        justify={"center"}
+        color={"black"}
+        rounded={"full"}
+        bg={"whiteAlpha.500"}
+        mb={1}
+      >
         {icon}
       </Flex>
-      <Text 
-        bgGradient='linear(to-r, purple.700, blue.700 )'
-        bgClip='text'
-      fontWeight={600} textAlign="center">{title}</Text>
+      <Text
+        fontSize={"lg"}
+        color={"gray.800"}
+        fontWeight={"bold"}
+        textAlign="center"
+      >
+        {title}
+      </Text>
+      <Divider />
+      <Text
+        color={"gray.600"}
+        textAlign="center"
+        fontWeight={"bold"}
+      >
+        {text}
+      </Text>
     </Stack>
   );
 };
 
 export default function Features() {
   return (
-    <section>
-      <Container maxW="container.xl">
-      <Center margin={50}>
-      <Heading
-      fontSize='5xl'
-      fontWeight='extrabold'
-      textAlign={"center"} 
-      >Features</Heading>
-    </Center>
-    <Box p={4} width="full" marginTop={50} marginBottom={150}>
-
-      <SimpleGrid columns={{ base: 1, md: 4 }} spacing={10}>
-        <Feature
-          icon={<Icon as={FcInTransit} w={10} h={10} />}
-          title={'FREE SHIPPING WORLD WIDE'}
-        />
-        <Feature
-          icon={<Icon as={FcDonate} w={10} h={10} />}
-          title={'100% MONEY BACK GUARANTEE'}
-          text={
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
-          }
-        />
-        <Feature
-          icon={<Icon as={FcMoneyTransfer} w={10} h={10} />}
-          title={'MANY PAYMENT GATWAYS'}
-          text={
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
-          }
-        />
-       <Feature
-          icon={<Icon as={FcAssistant} w={10} h={10} />}
-          title={'24/7 ONLINE SUPPORT'}
-          text={
-            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore...'
-          }
-        />
-      </SimpleGrid>
-    </Box>
+    <Box
+      roundedLeft={{ base: 150, sm: 50 }}
+      padding={8}
+      bgGradient="linear(to-r, gray.100, whiteAlpha.200)"
+      marginTop={50}
+    >
+      <Container maxW={"7xl"} py={16} as={Stack} spacing={12}>
+        <Stack spacing={0} align={"center"}>
+          <Heading fontSize="5xl" fontWeight="extrabold" textAlign={"center"}>
+            <Text
+              bgGradient="linear(to-l, #7928CA, #FF0080)"
+              bgClip="text"
+              fontWeight="extrabold"
+              textAlign={"center"}
+            >
+              Features
+            </Text>
+          </Heading>
+        </Stack>
+        <SimpleGrid columns={{ base: 3, sm: 1, md: 3 }} spacing={10}>
+          <Feature
+            icon={<Icon as={FcInTransit} w={65} h={65} />}
+            title={"Free Shipping"}
+            text={"Enjoy shopping without the extra cost. Free shipping on all orders, straight to your doorstep."}
+          />
+          <Feature
+            icon={<Icon as={FcDonate}w={65} h={65} />}
+            title={"100% Money Back Granteed"}
+            text={"Shop risk-free with our Money Back Guarantee. If you're not satisfied, we'll refund you – no questions asked."}
+          />
+          <Feature
+            icon={<Icon as={FcAssistant}w={65} h={65} />}
+            title={"24/7 Support"}
+            text={"Need help? We're here 24/7. Reach out anytime for prompt and friendly customer support."}
+            
+          />
+        </SimpleGrid>
       </Container>
-
-    </section>
-
+    </Box>
   );
 }

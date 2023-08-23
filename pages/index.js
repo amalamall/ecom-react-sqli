@@ -13,8 +13,9 @@ export default function Home() {
     <Hero />
     <Products />
     <Features />
+    {/* <Blogs /> */}
     <Testimonials />
-    <Blogs />
+ 
     <Contact />
     </div>
   );
