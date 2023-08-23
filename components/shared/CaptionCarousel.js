@@ -83,17 +83,17 @@ export default function CaptionCarousel() {
   // This can be static or loaded from a server
   const cards = [
     {
-      title: "IPhone 11 Pro Max",
+      title: "IPhone 14 Pro Max",
       text: "The world’s fastest smartphone chip.",
       image: "/assets/images/iphone14.png",
     },
     {
-      title: "IPhone 11 Pro",
+      title: "IPhone 11 Pro Max",
       text: "A huge leap in battery life",
       image: "/assets/images/iphone1.png",
     },
     {
-      title: "IPhone 14 Pro",
+      title: "IPhone 13",
       text: " Our most advanced dual‑camera system ever.",
       image: "/assets/images/iphone_hands.png",
     },
