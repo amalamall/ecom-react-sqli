@@ -24,6 +24,8 @@ import { MdLocalShipping } from "react-icons/md";
 import Products from "components/Products";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../store/slices/productsSlice";
+import Color from 'color-thief-react';
+
 
 export default function ProductById() {
   const [isTablet] = useMediaQuery("(min-width: 768px)");
@@ -65,7 +67,8 @@ export default function ProductById() {
   }
 
   return (
-    <>
+    <Color src={data?.image} crossOrigin="anonymous" format="hex">
+      {({ data: colorProd, loading, error }) => (
       <Container maxW={"7xl"} marginTop={"8rem"} className="bootstrap-wrapper">
         <SimpleGrid templateColumns={gridTemplateColumns}>
           {(data && (
@@ -134,7 +137,7 @@ export default function ProductById() {
                   >
                     {data.title}
                   </Heading>
-                  <Text color={"#ed64a6"} fontWeight={400} fontSize={"3xl"}>
+                  <Text color={colorProd} fontWeight={400} fontSize={"3xl"}>
                     ${data.price}
                   </Text>
                 </Box>
@@ -159,7 +162,7 @@ export default function ProductById() {
                   <Box>
                     <Text
                       fontSize={{ base: "16px", lg: "18px" }}
-                      color={"#ed64a6"}
+                      color={colorProd}
                       fontWeight={"500"}
                       textTransform={"uppercase"}
                       mb={"4"}
@@ -184,7 +187,7 @@ export default function ProductById() {
                   <Box>
                     <Text
                       fontSize={{ base: "16px", lg: "18px" }}
-                      color={"#ed64a6"}
+                      color={colorProd}
                       fontWeight={"500"}
                       textTransform={"uppercase"}
                       mb={"4"}
@@ -234,7 +237,7 @@ export default function ProductById() {
                   py={"7"}
                   onClick={() => handleAddProduct()}
                   color={"white"}
-                  bg={"#ed64a6"}
+                  bg={colorProd}
                   textTransform={"uppercase"}
                   _hover={{
                     transform: "translateY(2px)",
@@ -258,7 +261,7 @@ export default function ProductById() {
         </SimpleGrid>
         <Products />
       </Container>
-    
-    </>
+      )}
+    </Color>
   );
 }

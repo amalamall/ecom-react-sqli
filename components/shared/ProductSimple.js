@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { addProduct } from "../../store/slices/productsSlice";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Color from 'color-thief-react';
 
 export default function ProductSimple({ title, price, image, id }) {
   const dispatch = useDispatch();
@@ -21,7 +22,9 @@ export default function ProductSimple({ title, price, image, id }) {
   const router = useRouter();
   return (
     <Center py={6}>
-      <Box
+      <Color src={image} crossOrigin="anonymous" format="hex">
+      {({ data, loading, error }) => {
+      return (<Box
         role={"group"}
         p={6}
         maxW={"330px"}
@@ -36,24 +39,24 @@ export default function ProductSimple({ title, price, image, id }) {
           rounded={"lg"}
           pos={"relative"}
           height={"230px"}
-          // _after={{
-          //   transition: "all .3s ease",
-          //   content: '""',
-          //   w: "full",
-          //   h: "full",
-          //   pos: "absolute",
-          //   top: 0,
-          //   left: 0,
-          //   backgroundImage: `url(${image})`,
-          //   backgroundPosition: "cover",
-          //   filter: "blur(100px)",
-          //   zIndex: -1,
-          // }}
-          // _groupHover={{
-          //   _after: {
-          //     filter: "blur(20px)",
-          //   },
-          // }}
+          _after={{
+            transition: "all .3s ease",
+        
+          }}
+          _groupHover={{
+            _after: {
+              content: '""',
+              w: "full",
+              h: "full",
+              pos: "absolute",
+              top: 0,
+              left: 0,
+              backgroundImage: `url(${image})`,
+              backgroundPosition: "cover",
+              filter: "blur(100px)",
+              zIndex: -1,
+            },
+          }}
         >
           <Link href={`${router.basePath}/products/${id}`} passHref>
             <Image
@@ -82,16 +85,17 @@ export default function ProductSimple({ title, price, image, id }) {
               fontSize={"sm"}
               fontWeight={600}
               color={"white"}
-              bg={"purple.400"}
-              _hover={{
-                bg: "purple.300",
-              }}
-            >
+              bg={data}>
               Add To Cart
             </Button>
           </Stack>
         </Stack>
       </Box>
+      )
+    
+      }}
+      </Color>
+
     </Center>
   );
 }
